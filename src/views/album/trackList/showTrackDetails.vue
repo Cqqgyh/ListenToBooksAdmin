@@ -32,6 +32,7 @@
         <img
           :src="TrackDetails.trackInfo.coverUrl"
           style="width: 80px; height: 80px"
+          alt=""
         />
       </el-descriptions-item>
       <el-descriptions-item
@@ -123,6 +124,7 @@
         <img
           :src="TrackDetails.albumInfo.coverUrl"
           style="width: 80px; height: 80px"
+          alt=""
         />
       </el-descriptions-item>
       <el-descriptions-item

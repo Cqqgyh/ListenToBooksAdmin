@@ -32,6 +32,7 @@
         <img
           :src="albumDetails.albumInfo.coverUrl"
           style="width: 80px; height: 80px"
+          alt=""
         />
       </el-descriptions-item>
       <el-descriptions-item
@@ -41,7 +42,12 @@
         width="100px"
       >
         <span>
-          {{ getLabelByValue(AlbumApproveStatusMap, albumDetails.albumInfo.status) }}
+          {{
+            getLabelByValue(
+              AlbumApproveStatusMap,
+              albumDetails.albumInfo.status,
+            )
+          }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -206,7 +212,7 @@ import {
   IsOpenMap,
   PayTypeMap,
   PriceTypeMap,
-} from '../../../enums/constEnums'
+} from '@/enums/constEnums'
 
 const route = useRoute()
 const router = useRouter()

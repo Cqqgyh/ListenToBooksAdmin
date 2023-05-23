@@ -2,11 +2,12 @@ import http from '@/utils/http'
 import {
   AlbumDetailInterface,
   AlbumInterface,
-  AlbumListInterfaceReq, TrackDetailInterface,
+  AlbumListInterfaceReq,
+  TrackDetailInterface,
   TrackInfoInterface,
-  TrackListInterfaceReq
-} from "@/api/album/types";
-import { AlbumApproveStatus, TrackApproveStatus } from "@/enums/constEnums";
+  TrackListInterfaceReq,
+} from '@/api/album/types'
+import { AlbumApproveStatus, TrackApproveStatus } from '@/enums/constEnums'
 /**
  * @description 请求专辑列表
  * @param params
