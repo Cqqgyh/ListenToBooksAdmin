@@ -51,7 +51,7 @@
       v-bind="$attrs"
       v-loading="loading"
       :data="tableData"
-      :row-key="getRowKeys"
+      :row-key="rowKey"
       :border="border"
       @selection-change="selectionChange"
     >
@@ -139,7 +139,7 @@ import ColSetting from './components/ColSetting.vue'
  * @param initParam     - 初始化请求参数 ==> 非必传（默认为{}）
  * @param border        - 是否带有纵向边框 ==> 非必传（默认为true）
  * @param toolButton    - 是否显示表格功能按钮 ==> 非必传（默认为true）
- * @param selectId      - 当表格数据多选时，所指定的字段名 ==> 非必传（默认为 id）
+ * @param rowKey?: string; // 行数据的 Key，用来优化 Table 的渲染，当表格数据多选时，所指定的 id ==> 非必传（默认为 id）
  * @param searchCol     - 表格搜索项 每列占比配置 ==> 非必传 { xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }
  * @param resetCallback      - 点击重置时候所额外执行的回调函数 ==> 非必传（默认为()=>{}）
  */
@@ -152,7 +152,7 @@ interface ProTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
   initParam?: any
   border?: boolean
   toolButton?: boolean
-  selectId?: string
+  rowKey?: string
   searchCol?: number | Record<BreakPoint, number>
   resetCallback?: () => void
 }
@@ -164,7 +164,7 @@ const props = withDefaults(defineProps<ProTableProps>(), {
   initParam: {},
   border: true,
   toolButton: true,
-  selectId: 'id',
+  rowKey: 'id',
   searchCol: () => ({ xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }),
   resetCallback: () => ({}),
 })
@@ -227,13 +227,8 @@ watch(
 //* --------------------表格多选-----------------------
 
 // 表格多选 Hooks
-const {
-  selectionChange,
-  getRowKeys,
-  selectedList,
-  selectedListIds,
-  isSelected,
-} = useSelection(props.selectId)
+const { selectionChange, selectedList, selectedListIds, isSelected } =
+  useSelection(props.rowKey)
 
 // 清空选中数据列表
 const clearSelection = () => tableRef.value!.clearSelection()
