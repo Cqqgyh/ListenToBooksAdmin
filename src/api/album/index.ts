@@ -3,6 +3,7 @@ import {
   AlbumDetailInterface,
   AlbumInterface,
   AlbumListInterfaceReq,
+  CategoryTreeInterface,
   TrackDetailInterface,
   TrackInfoInterface,
   TrackListInterfaceReq,
@@ -74,5 +75,13 @@ export const trackApproval = (params: {
 export const getTrackDetail = (id: number | string) => {
   return http.get<TrackDetailInterface>(
     `/admin/album/trackInfo/getTrackDetail/${id}`,
+  )
+}
+/**
+ * @description 获取全部分类信息
+ */
+export const getCategoryList = () => {
+  return http.get<CategoryTreeInterface[]>(
+    `/admin/album/category/getBaseCategoryList`,
   )
 }

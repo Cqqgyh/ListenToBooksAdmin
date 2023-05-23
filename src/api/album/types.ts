@@ -122,3 +122,10 @@ export interface TrackDetailInterface {
   userInfoVo: UserInfoVoInterface
   trackStatVo: TrackStatVoInterface
 }
+// 分类接口
+// 分类
+export interface CategoryTreeInterface {
+  categoryId: number
+  categoryName: string
+  categoryChild?: CategoryTreeInterface[]
+}
