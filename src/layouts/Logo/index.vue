@@ -2,7 +2,7 @@
   <div class="logo-container flex-center">
     <a href="/">
       <img class="logo" alt="logo" src="/logo.png" />
-      <h1 class="title" v-if="!collapse">尚品汇后台管理</h1>
+      <h1 class="title" v-if="!collapse">硅谷听书后台管理</h1>
     </a>
   </div>
 </template>

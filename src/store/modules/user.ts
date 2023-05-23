@@ -28,6 +28,7 @@ export const useUserStore = defineStore({
     },
     async GetInfoAction() {
       const { data } = await getUserInfo()
+      data.routes = data.routes || ['demo']
       const { avatar, buttons, name, roles, routes } = data
       const authStore = useAuthStore()
       // 存储用户信息

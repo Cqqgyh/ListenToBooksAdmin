@@ -16,20 +16,20 @@
       >
         <template v-for="item in visitedViews" :key="item.path">
           <el-tab-pane
-            v-if="item.meta.isHide !== true"
+            v-if="item.meta?.isHide !== true"
             type="card"
             :path="item.path"
             :label="item.title"
             :name="item.path"
-            :closable="!(item.meta && item.meta.affix)"
+            :closable="!(item.meta && item.meta?.affix)"
           >
             <template #label>
               <el-icon
                 size="16"
                 class="tabs-icon"
-                v-if="item.meta && item.meta.icon"
+                v-if="item.meta && item.meta?.icon"
               >
-                <component :is="item.meta.icon"></component>
+                <component :is="item.meta?.icon"></component>
               </el-icon>
               {{ item.title }}
             </template>

@@ -1,5 +1,5 @@
 import http from '@/utils/http'
-import { DictionaryInterfaceRes } from '@/api/cmn/types'
+import { DictionaryInterfaceRes } from '@/api/template/types'
 /**
  * @description 获取数据字典接口
  * @param params

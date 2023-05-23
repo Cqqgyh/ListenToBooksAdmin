@@ -21,7 +21,11 @@ import { RESEETSTORE } from '../reset'
 import router from '@/router'
 
 const service: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_APP_BASE_API,
+  // 判断环境设置不同的baseURL
+  baseURL:
+    import.meta.env.NODE_ENV === 'development'
+      ? import.meta.env.VITE_APP_BASE_API
+      : import.meta.env.VITE_APP_BASE_URL,
   timeout: ResultEnum.TIMEOUT as number,
 })
 
