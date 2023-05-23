@@ -8,12 +8,12 @@ export function getLabelByValue(
   const item = arr.find((item) => item.value === value)
   return item ? item.label : ''
 }
-// 审核状态 0301-审核通过 0302-审核不通过
-export enum ApproveStatus {
+// 专辑审核状态 0301-审核通过 0302-审核不通过
+export enum AlbumApproveStatus {
   PASS = '0301',
   NOT_PASS = '0302',
 }
-export const ApproveStatusMap = [
+export const AlbumApproveStatusMap = [
   { label: '审核通过', value: '0301' },
   { label: '审核不通过', value: '0302' },
 ]
@@ -55,4 +55,22 @@ export enum PriceType {
 export const PriceTypeMap = [
   { label: '单集', value: '0201' },
   { label: '整专辑', value: '0202' },
+]
+// source	声音来源，1-用户原创 2-上传
+export enum TrackSource {
+  User = '1',
+  Upload = '2',
+}
+export const TrackSourceMap = [
+  { label: '用户原创', value: '1' },
+  { label: '上传', value: '2' },
+]
+// 声音审核状态 0501-审核通过 0502-审核不通过
+export enum TrackApproveStatus {
+  PASS = '0501',
+  NOT_PASS = '0502',
+}
+export const TrackApproveStatusMap = [
+  { label: '审核通过', value: '0501' },
+  { label: '审核不通过', value: '0502' },
 ]

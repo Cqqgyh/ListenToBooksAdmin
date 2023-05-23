@@ -75,21 +75,67 @@ export const staticRoutes: RouteRecordRaw[] = [
     children: [
       {
         name: 'album/albumList',
-        path: '/album/albumList',
-        component: () => import('@/views/album/albumList/albumList.vue'),
+        path: '/album',
+        redirect: '/album/albumList',
         meta: {
-          title: '专辑列表',
+          title: '专辑信息',
           icon: 'Setting',
         },
+        children: [
+          {
+            name: 'album/albumList',
+            path: '/album/albumList',
+            component: () => import('@/views/album/albumList/albumList.vue'),
+            meta: {
+              title: '专辑列表',
+              icon: 'Setting',
+            },
+          },
+          {
+            name: 'album/showAlbumDetails',
+            path: '/album/showAlbumDetails',
+            component: () =>
+              import('@/views/album/albumList/showAlbumDetails.vue'),
+            meta: {
+              title: '专辑详情',
+              icon: 'Setting',
+              isHide: true,
+              activeMenu: '/album/albumList',
+            },
+          },
+        ],
       },
       {
         name: 'album/trackList',
-        path: '/album/trackList',
-        component: () => import('@/views/album/trackList/trackList.vue'),
+        path: '/album',
+        redirect: '/album/trackList',
         meta: {
-          title: '声音列表',
+          title: '声音管理',
           icon: 'Setting',
         },
+        children: [
+          {
+            name: 'album/trackList',
+            path: '/album/trackList',
+            component: () => import('@/views/album/trackList/trackList.vue'),
+            meta: {
+              title: '声音列表',
+              icon: 'Setting',
+            },
+          },
+          {
+            name: 'album/showTrackDetails',
+            path: '/album/showTrackDetails',
+            component: () =>
+              import('@/views/album/trackList/showTrackDetails.vue'),
+            meta: {
+              title: '声音详情',
+              icon: 'Setting',
+              isHide: true,
+              activeMenu: '/album/trackList',
+            },
+          },
+        ],
       },
       {
         name: 'album/category',
@@ -108,17 +154,6 @@ export const staticRoutes: RouteRecordRaw[] = [
         meta: {
           title: '分类属性管理',
           icon: 'Setting',
-        },
-      },
-      {
-        name: 'album/showAlbumDetails',
-        path: '/album/showAlbumDetails',
-        component: () => import('@/views/album/albumList/showAlbumDetails.vue'),
-        meta: {
-          title: '专辑详情',
-          icon: 'Setting',
-          isHide: true,
-          activeMenu: '/album/albumList',
         },
       },
     ],

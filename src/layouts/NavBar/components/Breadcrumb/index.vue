@@ -3,15 +3,15 @@
     <transition-group name="breadcrumb" mode="out-in">
       <el-breadcrumb-item v-for="(item, index) in matched" :key="item.path">
         <el-icon size="14">
-          <component :is="item.meta.icon"></component>
+          <component :is="item.meta?.icon"></component>
         </el-icon>
         <span
           v-if="item.redirect === 'noRedirect' || index == matched.length - 1"
           class="no-redirect"
         >
-          {{ item.meta.title }}
+          {{ item.meta?.title }}
         </span>
-        <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+        <a v-else @click.prevent="handleLink(item)">{{ item.meta?.title }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>

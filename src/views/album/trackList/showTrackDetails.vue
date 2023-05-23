@@ -1,6 +1,97 @@
 <template>
-  <el-card v-if="albumDetails.albumInfo">
-    <el-descriptions title="专辑信息" :column="2" border>
+  <el-card v-if="TrackDetails.albumInfo">
+    <el-descriptions title="声音信息" :column="2" border>
+      <el-descriptions-item
+        label="声音标题"
+        label-align="right"
+        align="center"
+        width="100px"
+        :span="2"
+      >
+        <span>
+          {{ TrackDetails.trackInfo.trackTitle }}
+        </span>
+      </el-descriptions-item>
+      <el-descriptions-item
+        label="声音简介"
+        label-align="right"
+        align="center"
+        width="100px"
+        :span="2"
+      >
+        <span>
+          {{ TrackDetails.trackInfo.trackIntro }}
+        </span>
+      </el-descriptions-item>
+      <el-descriptions-item
+        label="声音封面"
+        label-align="right"
+        align="center"
+        width="100px"
+      >
+        <img
+          :src="TrackDetails.trackInfo.coverUrl"
+          style="width: 80px; height: 80px"
+        />
+      </el-descriptions-item>
+      <el-descriptions-item
+        label="声音状态"
+        label-align="right"
+        align="center"
+        width="100px"
+      >
+        <span>
+          {{
+            getLabelByValue(
+              TrackApproveStatusMap,
+              TrackDetails.trackInfo.status,
+            )
+          }}
+        </span>
+      </el-descriptions-item>
+      <el-descriptions-item
+        label="声音是否公开"
+        label-align="right"
+        align="center"
+        width="100px"
+      >
+        <span>
+          {{ getLabelByValue(IsOpenMap, TrackDetails.trackInfo.isOpen) }}
+        </span>
+      </el-descriptions-item>
+      <el-descriptions-item
+        label="媒体时长"
+        label-align="right"
+        align="center"
+        width="100px"
+      >
+        <span>
+          {{ TrackDetails.trackInfo.mediaDuration }}
+        </span>
+      </el-descriptions-item>
+      <el-descriptions-item
+        label="媒体类型"
+        label-align="right"
+        align="center"
+        width="100px"
+      >
+        <span>
+          {{ TrackDetails.trackInfo.mediaType }}
+        </span>
+      </el-descriptions-item>
+      <el-descriptions-item
+        label="声音来源"
+        label-align="right"
+        align="center"
+        width="100px"
+      >
+        <span>
+          {{ getLabelByValue(TrackSourceMap, TrackDetails.trackInfo.source) }}
+        </span>
+      </el-descriptions-item>
+    </el-descriptions>
+
+    <el-descriptions title="声音所属专辑信息" :column="2" class="m-t-40" border>
       <el-descriptions-item
         label="专辑标题"
         label-align="right"
@@ -9,7 +100,7 @@
         :span="2"
       >
         <span>
-          {{ albumDetails.albumInfo.albumTitle }}
+          {{ TrackDetails.albumInfo.albumTitle }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -20,7 +111,7 @@
         :span="2"
       >
         <span>
-          {{ albumDetails.albumInfo.albumIntro }}
+          {{ TrackDetails.albumInfo.albumIntro }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -30,7 +121,7 @@
         width="100px"
       >
         <img
-          :src="albumDetails.albumInfo.coverUrl"
+          :src="TrackDetails.albumInfo.coverUrl"
           style="width: 80px; height: 80px"
         />
       </el-descriptions-item>
@@ -41,7 +132,12 @@
         width="100px"
       >
         <span>
-          {{ getLabelByValue(AlbumApproveStatusMap, albumDetails.albumInfo.status) }}
+          {{
+            getLabelByValue(
+              AlbumApproveStatusMap,
+              TrackDetails.albumInfo.status,
+            )
+          }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -51,7 +147,7 @@
         width="100px"
       >
         <span>
-          {{ albumDetails.albumInfo.includeTrackCount }}
+          {{ TrackDetails.albumInfo.includeTrackCount }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -61,7 +157,7 @@
         width="100px"
       >
         <span>
-          {{ albumDetails.albumInfo.estimatedTrackCount }}
+          {{ TrackDetails.albumInfo.estimatedTrackCount }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -72,7 +168,7 @@
       >
         <span>
           {{
-            getLabelByValue(FinishTypeMap, albumDetails.albumInfo.isFinished)
+            getLabelByValue(FinishTypeMap, TrackDetails.albumInfo.isFinished)
           }}
         </span>
       </el-descriptions-item>
@@ -83,7 +179,7 @@
         width="100px"
       >
         <span>
-          {{ getLabelByValue(IsOpenMap, albumDetails.albumInfo.isOpen) }}
+          {{ getLabelByValue(IsOpenMap, TrackDetails.albumInfo.isOpen) }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -93,7 +189,7 @@
         width="100px"
       >
         <span>
-          {{ albumDetails.albumInfo.qualityScore }}
+          {{ TrackDetails.albumInfo.qualityScore }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -103,7 +199,7 @@
         width="100px"
       >
         <span>
-          {{ getLabelByValue(PayTypeMap, albumDetails.albumInfo.payType) }}
+          {{ getLabelByValue(PayTypeMap, TrackDetails.albumInfo.payType) }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -113,7 +209,7 @@
         width="100px"
       >
         <span>
-          {{ getLabelByValue(PriceTypeMap, albumDetails.albumInfo.priceType) }}
+          {{ getLabelByValue(PriceTypeMap, TrackDetails.albumInfo.priceType) }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -123,7 +219,7 @@
         width="100px"
       >
         <span>
-          {{ albumDetails.albumInfo.price }}
+          {{ TrackDetails.albumInfo.price }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -133,7 +229,7 @@
         width="100px"
       >
         <span>
-          {{ albumDetails.albumInfo.discount }}
+          {{ TrackDetails.albumInfo.discount }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -143,7 +239,7 @@
         width="100px"
       >
         <span>
-          {{ albumDetails.albumInfo.vipDiscount }}
+          {{ TrackDetails.albumInfo.vipDiscount }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -153,7 +249,7 @@
         width="100px"
       >
         <span>
-          {{ albumDetails.albumInfo.tracksForFree }}
+          {{ TrackDetails.albumInfo.tracksForFree }}
         </span>
       </el-descriptions-item>
       <el-descriptions-item
@@ -163,28 +259,8 @@
         width="100px"
       >
         <span>
-          {{ albumDetails.albumInfo.secondsForFree }}
+          {{ TrackDetails.albumInfo.secondsForFree }}
         </span>
-      </el-descriptions-item>
-      <el-descriptions-item
-        label="专辑标签"
-        label-align="right"
-        align="center"
-        width="100px"
-        :span="2"
-        v-if="albumDetails.albumAttributeValueList.length"
-      >
-        <div class="flex-wrap">
-          <el-tag
-            v-for="(item, index) in albumDetails.albumAttributeValueList"
-            :key="item.id"
-            style="margin: 5px"
-            type="success"
-            effect="dark"
-          >
-            {{ `${index + 1}. ${item.attributeName}:${item.valueName}` }}
-          </el-tag>
-        </div>
       </el-descriptions-item>
     </el-descriptions>
     <div class="m-t-20 flex-center">
@@ -197,8 +273,8 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
-import { getAlbumDetail } from '@/api/album'
-import { AlbumDetailInterface } from '@/api/album/types'
+import { getTrackDetail } from '@/api/album'
+import { TrackDetailInterface } from '@/api/album/types'
 import {
   AlbumApproveStatusMap,
   FinishTypeMap,
@@ -206,24 +282,26 @@ import {
   IsOpenMap,
   PayTypeMap,
   PriceTypeMap,
-} from '../../../enums/constEnums'
+  TrackApproveStatusMap,
+  TrackSourceMap,
+} from '@/enums/constEnums'
 
 const route = useRoute()
 const router = useRouter()
 console.log(route.query.id)
-const albumDetails = ref({} as AlbumDetailInterface)
+const TrackDetails = ref({} as TrackDetailInterface)
 // 请求医院详情
-const getAlbumDetailHandle = async () => {
+const getTrackDetailHandle = async () => {
   try {
-    const res = await getAlbumDetail(route.query.id as string)
-    albumDetails.value = res.data
+    const res = await getTrackDetail(route.query.id as string)
+    TrackDetails.value = res.data
   } catch (error) {
     console.log(error)
   }
 }
 /* 生命周期 */
 onMounted(async () => {
-  await getAlbumDetailHandle()
+  await getTrackDetailHandle()
 })
 </script>
 
