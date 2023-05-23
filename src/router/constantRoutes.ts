@@ -62,6 +62,67 @@ export const staticRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  // 专辑管理
+  {
+    name: 'album',
+    path: '/album',
+    component: LAYOUT,
+    redirect: '/album/albumList',
+    meta: {
+      title: '专辑管理',
+      icon: 'office-building',
+    },
+    children: [
+      {
+        name: 'album/albumList',
+        path: '/album/albumList',
+        component: () => import('@/views/album/albumList/albumList.vue'),
+        meta: {
+          title: '专辑列表',
+          icon: 'Setting',
+        },
+      },
+      {
+        name: 'album/trackList',
+        path: '/album/trackList',
+        component: () => import('@/views/album/trackList/trackList.vue'),
+        meta: {
+          title: '声音列表',
+          icon: 'Setting',
+        },
+      },
+      {
+        name: 'album/category',
+        path: '/album/category',
+        component: () => import('@/views/album/category/category.vue'),
+        meta: {
+          title: '分类管理',
+          icon: 'Setting',
+        },
+      },
+      {
+        name: 'album/categoryAttribute',
+        path: '/album/categoryAttribute',
+        component: () =>
+          import('@/views/album/categoryAttribute/categoryAttribute.vue'),
+        meta: {
+          title: '分类属性管理',
+          icon: 'Setting',
+        },
+      },
+      {
+        name: 'album/showAlbumDetails',
+        path: '/album/showAlbumDetails',
+        component: () => import('@/views/album/albumList/showAlbumDetails.vue'),
+        meta: {
+          title: '专辑详情',
+          icon: 'Setting',
+          isHide: true,
+          activeMenu: '/album/albumList',
+        },
+      },
+    ],
+  },
   // 此路由防止控制台出现No match found for location with path的警告
   {
     path: '/:catchAll(.*)',
