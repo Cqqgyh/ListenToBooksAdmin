@@ -203,6 +203,51 @@ export const staticRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  // 会员管理
+  {
+    name: 'member',
+    path: '/member',
+    component: LAYOUT,
+    redirect: '/member/memberList',
+    meta: {
+      title: '会员管理',
+      icon: 'office-building',
+    },
+    children: [
+      {
+        name: 'member/memberInfo',
+        path: '/member/memberList',
+        redirect: '/member/memberList',
+        meta: {
+          title: '会员列表',
+          icon: 'Setting',
+        },
+        children: [
+          {
+            name: 'member/memberList',
+            path: '/member/memberList',
+            component: () => import('@/views/member/memberList/memberList.vue'),
+            meta: {
+              title: '会员列表',
+              icon: 'Setting',
+            },
+          },
+          {
+            name: 'member/showMemberDetails',
+            path: '/member/showMemberDetails',
+            component: () =>
+              import('@/views/member/memberList/showMemberDetails.vue'),
+            meta: {
+              title: '会员详情',
+              icon: 'Setting',
+              isHide: true,
+              activeMenu: '/member/memberList',
+            },
+          },
+        ],
+      },
+    ],
+  },
   // 此路由防止控制台出现No match found for location with path的警告
   {
     path: '/:catchAll(.*)',

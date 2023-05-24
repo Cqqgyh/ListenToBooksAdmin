@@ -1,7 +1,7 @@
 export function getLabelByValue(
   arr: {
     label: string
-    value: string
+    value: string | number
   }[],
   value: string,
 ): string {
@@ -106,4 +106,31 @@ export const OrderStatusTypeMap = [
   { label: '未支付', value: '0901' },
   { label: '已支付', value: '0902' },
   { label: '已取消', value: '0903' },
+]
+// gender 性别：1-女 0-男
+export enum GenderType {
+  Man = 0,
+  Woman = 1,
+}
+export const GenderTypeMap = [
+  { label: '男', value: 0 },
+  { label: '女', value: 1 },
+]
+// 用户状态：0-正常 1-禁用
+export enum UserStatus {
+  Normal = 0,
+  Disabled = 1,
+}
+export const UserStatusMap = [
+  { label: '正常', value: 0 },
+  { label: '禁用', value: 1 },
+]
+// Vip 会员状态：0-非会员 1-会员
+export enum VipStatus {
+  NotVip = 0,
+  Vip = 1,
+}
+export const VipStatusMap = [
+  { label: '非会员', value: 0 },
+  { label: '会员', value: 1 },
 ]
