@@ -1,6 +1,5 @@
-// 分页请求响应接口
 import { AlbumApproveStatus, TrackApproveStatus } from '@/enums/constEnums'
-
+// 分页请求响应接口
 export interface PageResponseInterface<T> {
   records: T
   total: number
@@ -128,4 +127,16 @@ export interface CategoryTreeInterface {
   categoryId: number
   categoryName: string
   categoryChild?: CategoryTreeInterface[]
+}
+// 分类属性
+export interface AttributeInterface {
+  attributeId: number
+  id: number
+  valueName: string
+}
+export interface AttributeListInterface {
+  id: number
+  attributeName: string
+  category1Id: number
+  attributeValueList: AttributeInterface[]
 }

@@ -74,7 +74,7 @@ export const staticRoutes: RouteRecordRaw[] = [
     },
     children: [
       {
-        name: 'album/albumList',
+        name: 'album/albumInfo',
         path: '/album',
         redirect: '/album/albumList',
         meta: {
@@ -155,6 +155,51 @@ export const staticRoutes: RouteRecordRaw[] = [
           title: '分类属性管理',
           icon: 'Setting',
         },
+      },
+    ],
+  },
+  // 订单管理
+  {
+    name: 'order',
+    path: '/order',
+    component: LAYOUT,
+    redirect: '/order/orderList',
+    meta: {
+      title: '订单管理',
+      icon: 'office-building',
+    },
+    children: [
+      {
+        name: 'order/orderInfo',
+        path: '/order/orderList',
+        redirect: '/order/orderList',
+        meta: {
+          title: '订单列表',
+          icon: 'Setting',
+        },
+        children: [
+          {
+            name: 'order/orderList',
+            path: '/order/orderList',
+            component: () => import('@/views/order/orderList/orderList.vue'),
+            meta: {
+              title: '订单列表',
+              icon: 'Setting',
+            },
+          },
+          {
+            name: 'order/showOrderDetails',
+            path: '/order/showOrderDetails',
+            component: () =>
+              import('@/views/order/orderList/showOrderDetails.vue'),
+            meta: {
+              title: '订单详情',
+              icon: 'Setting',
+              isHide: true,
+              activeMenu: '/order/orderList',
+            },
+          },
+        ],
       },
     ],
   },

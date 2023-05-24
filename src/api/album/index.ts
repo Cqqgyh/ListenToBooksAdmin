@@ -2,7 +2,7 @@ import http from '@/utils/http'
 import {
   AlbumDetailInterface,
   AlbumInterface,
-  AlbumListInterfaceReq,
+  AlbumListInterfaceReq, AttributeListInterface,
   CategoryTreeInterface,
   TrackDetailInterface,
   TrackInfoInterface,
@@ -83,5 +83,24 @@ export const getTrackDetail = (id: number | string) => {
 export const getCategoryList = () => {
   return http.get<CategoryTreeInterface[]>(
     `/admin/album/category/getBaseCategoryList`,
+  )
+}
+/**
+ * @description 获取一级分类信息
+ */
+export const getCategory1List = () => {
+  return http.get<CategoryTreeInterface[]>(
+    `/admin/album/category/findAllCategory1`,
+  )
+}
+/**
+ * @description 根据一级分类Id查询分类属性数据
+ * @param category1Id
+ */
+export const getCategoryAttributeListByCategory1Id = (
+  category1Id: number | string,
+) => {
+  return http.get<AttributeListInterface[]>(
+    `/admin/album/category/findAttribute/${category1Id}`,
   )
 }
