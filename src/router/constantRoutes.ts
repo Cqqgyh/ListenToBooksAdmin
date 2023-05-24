@@ -62,6 +62,46 @@ export const staticRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  // 系统权限管理
+  {
+    name: 'system',
+    path: '/system',
+    component: LAYOUT,
+    redirect: '/system/user',
+    meta: {
+      title: '系统管理',
+      icon: 'Lock',
+    },
+    children: [
+      {
+        name: 'System/User',
+        path: '/system/user',
+        component: () => import('@/views/system/user/user.vue'),
+        meta: {
+          title: '用户管理',
+          icon: 'UserFilled',
+        },
+      },
+      {
+        name: 'System/Role',
+        path: '/system/role',
+        component: () => import('@/views/system/role/index.vue'),
+        meta: {
+          title: '角色管理',
+          icon: 'Avatar',
+        },
+      },
+      {
+        name: 'System/Permision',
+        path: '/system/permission',
+        component: () => import('@/views/system/permission/index.vue'),
+        meta: {
+          title: '菜单管理',
+          icon: 'Menu',
+        },
+      },
+    ],
+  },
   // 专辑管理
   {
     name: 'album',
