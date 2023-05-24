@@ -70,7 +70,7 @@ export const staticRoutes: RouteRecordRaw[] = [
     redirect: '/album/albumList',
     meta: {
       title: '专辑管理',
-      icon: 'office-building',
+      icon: 'Film',
     },
     children: [
       {
@@ -79,7 +79,7 @@ export const staticRoutes: RouteRecordRaw[] = [
         redirect: '/album/albumList',
         meta: {
           title: '专辑信息',
-          icon: 'Setting',
+          icon: 'List',
         },
         children: [
           {
@@ -88,7 +88,7 @@ export const staticRoutes: RouteRecordRaw[] = [
             component: () => import('@/views/album/albumList/albumList.vue'),
             meta: {
               title: '专辑列表',
-              icon: 'Setting',
+              icon: 'List',
             },
           },
           {
@@ -98,7 +98,7 @@ export const staticRoutes: RouteRecordRaw[] = [
               import('@/views/album/albumList/showAlbumDetails.vue'),
             meta: {
               title: '专辑详情',
-              icon: 'Setting',
+              icon: 'Document',
               isHide: true,
               activeMenu: '/album/albumList',
             },
@@ -111,7 +111,7 @@ export const staticRoutes: RouteRecordRaw[] = [
         redirect: '/album/trackList',
         meta: {
           title: '声音管理',
-          icon: 'Setting',
+          icon: 'Headset',
         },
         children: [
           {
@@ -120,7 +120,7 @@ export const staticRoutes: RouteRecordRaw[] = [
             component: () => import('@/views/album/trackList/trackList.vue'),
             meta: {
               title: '声音列表',
-              icon: 'Setting',
+              icon: 'Headset',
             },
           },
           {
@@ -130,7 +130,7 @@ export const staticRoutes: RouteRecordRaw[] = [
               import('@/views/album/trackList/showTrackDetails.vue'),
             meta: {
               title: '声音详情',
-              icon: 'Setting',
+              icon: 'Document',
               isHide: true,
               activeMenu: '/album/trackList',
             },
@@ -143,7 +143,7 @@ export const staticRoutes: RouteRecordRaw[] = [
         component: () => import('@/views/album/category/category.vue'),
         meta: {
           title: '分类管理',
-          icon: 'Setting',
+          icon: 'Menu',
         },
       },
       {
@@ -153,7 +153,7 @@ export const staticRoutes: RouteRecordRaw[] = [
           import('@/views/album/categoryAttribute/categoryAttribute.vue'),
         meta: {
           title: '分类属性管理',
-          icon: 'Setting',
+          icon: 'Grid',
         },
       },
     ],
@@ -166,7 +166,7 @@ export const staticRoutes: RouteRecordRaw[] = [
     redirect: '/order/orderList',
     meta: {
       title: '订单管理',
-      icon: 'office-building',
+      icon: 'Setting',
     },
     children: [
       {
@@ -175,7 +175,7 @@ export const staticRoutes: RouteRecordRaw[] = [
         redirect: '/order/orderList',
         meta: {
           title: '订单列表',
-          icon: 'Setting',
+          icon: 'List',
         },
         children: [
           {
@@ -184,7 +184,7 @@ export const staticRoutes: RouteRecordRaw[] = [
             component: () => import('@/views/order/orderList/orderList.vue'),
             meta: {
               title: '订单列表',
-              icon: 'Setting',
+              icon: 'List',
             },
           },
           {
@@ -194,7 +194,7 @@ export const staticRoutes: RouteRecordRaw[] = [
               import('@/views/order/orderList/showOrderDetails.vue'),
             meta: {
               title: '订单详情',
-              icon: 'Setting',
+              icon: 'Document',
               isHide: true,
               activeMenu: '/order/orderList',
             },
@@ -211,7 +211,7 @@ export const staticRoutes: RouteRecordRaw[] = [
     redirect: '/member/memberList',
     meta: {
       title: '会员管理',
-      icon: 'office-building',
+      icon: 'UserFilled',
     },
     children: [
       {
@@ -220,7 +220,7 @@ export const staticRoutes: RouteRecordRaw[] = [
         redirect: '/member/memberList',
         meta: {
           title: '会员列表',
-          icon: 'Setting',
+          icon: 'UserFilled',
         },
         children: [
           {
@@ -229,7 +229,7 @@ export const staticRoutes: RouteRecordRaw[] = [
             component: () => import('@/views/member/memberList/memberList.vue'),
             meta: {
               title: '会员列表',
-              icon: 'Setting',
+              icon: 'UserFilled',
             },
           },
           {
@@ -239,7 +239,7 @@ export const staticRoutes: RouteRecordRaw[] = [
               import('@/views/member/memberList/showMemberDetails.vue'),
             meta: {
               title: '会员详情',
-              icon: 'Setting',
+              icon: 'Document',
               isHide: true,
               activeMenu: '/member/memberList',
             },
