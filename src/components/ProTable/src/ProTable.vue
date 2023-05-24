@@ -244,7 +244,7 @@ provide('enumMap', enumMap)
 const setEnumMap = async (col: ColumnProps) => {
   if (!col.enum) return
   if (typeof col.enum !== 'function')
-    return enumMap.value.set(col.prop!, col.enum!)
+    return enumMap.value.set(col.prop!, (col.enum as any)?.value || col.enum)
   const { data } = await col.enum()
   enumMap.value.set(col.prop!, data)
 }
