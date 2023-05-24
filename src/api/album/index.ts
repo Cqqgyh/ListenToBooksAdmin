@@ -2,7 +2,8 @@ import http from '@/utils/http'
 import {
   AlbumDetailInterface,
   AlbumInterface,
-  AlbumListInterfaceReq, AttributeListInterface,
+  AlbumListInterfaceReq,
+  AttributeListInterface,
   CategoryTreeInterface,
   TrackDetailInterface,
   TrackInfoInterface,
