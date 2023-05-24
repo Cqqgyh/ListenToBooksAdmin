@@ -4,7 +4,9 @@ import {
   AlbumInterface,
   AlbumListInterfaceReq,
   AttributeListInterface,
+  CategoryAttributeListInterface,
   CategoryTreeInterface,
+  PageResponseInterface,
   TrackDetailInterface,
   TrackInfoInterface,
   TrackListInterfaceReq,
@@ -15,7 +17,7 @@ import { AlbumApproveStatus, TrackApproveStatus } from '@/enums/constEnums'
  * @param params
  */
 export const getAlbumList = (params: AlbumListInterfaceReq) => {
-  return http.get<AlbumInterface[]>(
+  return http.get<PageResponseInterface<AlbumInterface[]>>(
     `/admin/album/albumInfo/findAlbumPage/${params.pageNum}/${params.pageSize}`,
     {
       albumTitle: params.albumTitle,
@@ -49,7 +51,7 @@ export const getAlbumDetail = (id: number | string) => {
  * @param params
  */
 export const getTrackList = (params: TrackListInterfaceReq) => {
-  return http.get<TrackInfoInterface[]>(
+  return http.get<PageResponseInterface<TrackInfoInterface[]>>(
     `/admin/album/trackInfo/findTrackPage/${params.pageNum}/${params.pageSize}`,
     {
       trackTitle: params.trackTitle,
@@ -90,7 +92,7 @@ export const getCategoryList = () => {
  * @description 获取一级分类信息
  */
 export const getCategory1List = () => {
-  return http.get<CategoryTreeInterface[]>(
+  return http.get<CategoryAttributeListInterface[]>(
     `/admin/album/category/findAllCategory1`,
   )
 }
@@ -103,5 +105,13 @@ export const getCategoryAttributeListByCategory1Id = (
 ) => {
   return http.get<AttributeListInterface[]>(
     `/admin/album/category/findAttribute/${category1Id}`,
+  )
+}
+/**
+ * @description 获取全部分类属性
+ */
+export const getCategoryAttributeList = () => {
+  return http.get<CategoryAttributeListInterface[]>(
+    `/admin/album/category/findCategoryAttribute`,
   )
 }

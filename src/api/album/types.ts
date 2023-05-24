@@ -140,3 +140,13 @@ export interface AttributeListInterface {
   category1Id: number
   attributeValueList: AttributeInterface[]
 }
+export interface CategoryAttributeListInterface {
+  id?: number
+  name?: string
+  attributeName?: string
+  attributeValue?: string
+  uniqueId?: string
+  attributeId?: number
+  attributeValueId?: number
+  children: CategoryAttributeListInterface[]
+}
