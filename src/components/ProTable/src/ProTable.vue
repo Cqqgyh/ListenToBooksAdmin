@@ -212,7 +212,7 @@ watch(
       if (
         item.search &&
         item.search.el &&
-        item.search.el === 'select' &&
+        (item.search.el === 'select' || item.search.el === 'tree-select') &&
         item.enum
       ) {
         // 重设数据
