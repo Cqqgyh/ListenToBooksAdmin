@@ -1,5 +1,6 @@
 import http from '@/utils/http'
 import {
+  AssignRolesInterfaceReq,
   DeptInterfacesRes,
   PageResponseInterface,
   PostInterfacesRes,
@@ -72,7 +73,7 @@ export function deleteSysUserById(id: number | string) {
  * @description:   获取某个用户的所有角色
  * @param {string} userId
  */
-export function getUserRolesListByUserId(userId: string) {
+export function getUserRolesListByUserId(userId: string | number) {
   return http.get<PageResponseInterface<UserRolesListInterfaceRes>>(
     `/admin/system/sysRole/toAssign/${userId}`,
   )
@@ -87,4 +88,12 @@ export function batchSysUser(ids: string[]) {
     `/admin/system/sysRole/batchRemove`,
     ids,
   )
+}
+/**
+ * @description:   给某个用户分配角色
+ * @param {AclUser.ReqAssignRoles} params
+ */
+export function assignSysUserRoles(params: AssignRolesInterfaceReq) {
+  // Post方法传递get参数的方式需要下面这么写
+  return http.post(`/admin/system/sysRole/doAssign`, params)
 }

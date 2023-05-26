@@ -101,7 +101,7 @@
           全选
         </el-checkbox>
         <el-checkbox-group
-          v-model="state.assignRoles"
+          v-model="state.assginRoleList"
           @change="handleCheckedChange"
         >
           <el-checkbox
@@ -139,7 +139,7 @@ interface DrawerProps {
 
 interface RolesState {
   allRolesList: Role[]
-  assignRoles: string[] | number[]
+  assginRoleList: string[] | number[]
   checkAll: boolean
   isIndeterminate: boolean
 }
@@ -170,15 +170,17 @@ const loading = ref<boolean>(false)
 // 角色选择状态管理
 const state: RolesState = reactive({
   allRolesList: [],
-  assignRoles: [],
+  assginRoleList: [],
   checkAll: false,
   isIndeterminate: false,
 })
 
 // 全选
 const handleCheckAllChange = (val: CheckboxValueType) => {
-  state.assignRoles = val ? state.allRolesList.map((item: Role) => item.id) : []
-  console.log(state.assignRoles)
+  state.assginRoleList = val
+    ? state.allRolesList.map((item: Role) => item.id)
+    : []
+  console.log(state.assginRoleList)
 
   state.isIndeterminate = false
 }
@@ -196,8 +198,8 @@ const acceptParams = (params: DrawerProps): void => {
   if (params.title === '分配角色') {
     const { list } = params
     state.allRolesList = list.data.allRolesList
-    state.assignRoles = list.data.assignRoles.map((item: Role) => item.id)
-    state.isIndeterminate = state.assignRoles.length > 0 ? true : false
+    state.assginRoleList = list.data.assginRoleList.map((item: Role) => item.id)
+    state.isIndeterminate = state.assginRoleList.length > 0 ? true : false
   }
   drawerProps.value = params
   drawerVisible.value = true
@@ -212,7 +214,7 @@ const handleSubmit = () => {
       if (drawerProps.value.title === '分配角色') {
         const params = {
           userId: drawerProps.value.rowData.id,
-          roleIdList: state.assignRoles,
+          roleIdList: state.assginRoleList,
         }
         await drawerProps.value.api!(params)
       } else {

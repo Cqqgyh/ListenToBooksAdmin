@@ -38,9 +38,9 @@ export interface SysUserInterfaceRes {
 export interface Role {
   id: number
   createTime: string | null
-  updateTime: string | null
-  isDeleted: number | null
-  param: Record<string, any>
+  updateTime?: string | null
+  isDeleted?: number | null
+  param?: Record<string, any>
   roleName: string
   roleCode: string
   description: string | null
@@ -70,4 +70,8 @@ export interface DeptInterfacesRes {
 export interface UserRolesListInterfaceRes {
   allRolesList: Role[]
   assignRoles: Role[]
+}
+export interface AssignRolesInterfaceReq {
+  userId: string
+  roleIdList: string[]
 }

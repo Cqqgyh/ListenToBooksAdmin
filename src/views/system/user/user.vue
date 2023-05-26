@@ -59,9 +59,9 @@ import { ColumnProps, EnumProps } from '@/components/ProTable/src/types'
 import UserDrawer from './components/UserDrawer.vue'
 import { useHandleData } from '@/hooks/useHandleData'
 import { ElMessage } from 'element-plus'
-import { getUserRolesList } from '@/api'
 import {
   addSysUser,
+  assignSysUserRoles,
   batchSysUser,
   deleteSysUserById,
   getSysDeptTree,
@@ -97,18 +97,21 @@ const dataCallback = (data: any) => {
 const drawerRef = ref()
 const openDrawer = async (
   title: string,
-  rowData: Partial<SysUserInterfaceRes> = {},
+  rowData: Partial<SysUserInterfaceRes> = {} as SysUserInterfaceRes,
 ) => {
   let params = {
     title,
     rowData: { ...rowData },
-    list: title === '分配角色' ? await getUserRolesList(rowData!.id || '') : [],
+    list:
+      title === '分配角色'
+        ? await getUserRolesListByUserId(rowData!.id || '')
+        : [],
     api:
       title === '新增'
         ? addSysUser
         : title === '编辑'
         ? updateSysUser
-        : getUserRolesListByUserId,
+        : assignSysUserRoles,
     getTableList: proTable.value?.getTableList,
     postList: title !== '分配角色' ? postList.value : [],
     deptList: title !== '分配角色' ? deptList.value : [],
@@ -219,7 +222,7 @@ const columns: ColumnProps[] = [
     label: '所属角色',
     width: 100,
     render: ({ row }) => {
-      return [...row.roleList, ...row.roleList].map((item: Role) => (
+      return row.roleList.map((item: Role) => (
         <el-tag key={item.id} class="flex-wrap m-r-10 m-t-5">
           {item.roleName}
         </el-tag>
