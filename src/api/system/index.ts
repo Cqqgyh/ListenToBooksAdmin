@@ -1,3 +1,11 @@
+/*
+ * @Author: cqq 945327638@qq.com
+ * @Date: 2023-05-24 14:39:06
+ * @LastEditors: cqq 945327638@qq.com
+ * @LastEditTime: 2023-05-26 18:47:06
+ * @FilePath: \listen-to-books-admin\src\api\system\index.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import http from '@/utils/http'
 import {
   AssignPermissionInterfaceReq,
@@ -94,7 +102,7 @@ export function batchSysUser(ids: string[]) {
 }
 /**
  * @description:   给某个用户分配角色
- * @param {AclUser.ReqAssignRoles} params
+ * @param {AssignRolesInterfaceReq} params
  */
 export function assignSysUserRoles(params: AssignRolesInterfaceReq) {
   // Post方法传递get参数的方式需要下面这么写
@@ -158,4 +166,42 @@ export function batchSysRole(ids: (string | number)[]) {
     `/admin/system/sysRole/batchRemove`,
     ids,
   )
+}
+/**
+ * @description 获取权限菜单列表
+ * @returns
+ */
+export function getSysPermissionList() {
+  return http.get<PermissionListInterfaceRes[]>(
+    `/admin/system/sysMenu/findNodes`,
+  )
+}
+// 修改更新权限菜单
+export function updateSysPermission(data: PermissionListInterfaceRes) {
+  return http.put(`/admin/system/sysMenu/update`, data)
+}
+/**
+ * @description 新增菜单
+ * @returns
+ * @param data
+ */
+export function addSysMenu(data: PermissionListInterfaceRes) {
+  return http.post(`/admin/system/sysMenu/save`, data)
+}
+
+/**
+ * @description 修改菜单
+ * @returns
+ * @param data
+ */
+export function updateSysMenu(data: PermissionListInterfaceRes) {
+  return http.put(`/admin/system/sysMenu/update`, data)
+}
+/**
+ * @description 删除删除
+ * @param { string } id
+ * @returns
+ */
+export function deleteSysMenu(id: string | number) {
+  return http.delete(`/admin/system/sysMenu/remove/${id}`)
 }

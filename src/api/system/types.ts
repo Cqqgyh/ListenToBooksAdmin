@@ -81,21 +81,23 @@ export interface RoleListParamsInterfaceReq extends ReqPage {
 // 权限列表
 export interface PermissionListInterfaceRes {
   children?: PermissionListInterfaceRes[]
-  id: number
-  createTime: string
-  updateTime: string
-  isDeleted: number
-  param: object
-  parentId: number
-  name: string | null
-  type: number
-  path: string | null
-  component: string | null
-  perms: string
-  icon: string | null
-  sortValue: number
-  status: number
-  select: boolean
+  id?: number | null
+  createTime?: string
+  updateTime?: string
+  isDeleted?: number
+  param?: object
+  parentId?: number
+  name?: string | null
+  type?: number
+  path?: string | null
+  component?: string | null
+  perms?: string
+  icon?: string | null
+  sortValue?: number
+  status?: number
+  activeMenu?: string
+  isHide?: boolean | 0 | 1
+  select?: boolean
 }
 // 分配权限列表请求
 export interface AssignPermissionInterfaceReq {

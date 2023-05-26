@@ -6,8 +6,6 @@ import { ProTable } from './ProTable'
 import { Auth } from './Auth'
 import { SwitchDark } from './SwitchDark'
 import { IconifyIcon } from './IconifyIcon'
-import { CategorySelector } from './CategorySelector'
-
 const Components: {
   [propName: string]: Component
 } = {
@@ -17,7 +15,6 @@ const Components: {
   Auth,
   SwitchDark,
   IconifyIcon,
-  CategorySelector,
 }
 
 export default {

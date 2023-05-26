@@ -85,7 +85,7 @@ export const staticRoutes: RouteRecordRaw[] = [
       {
         name: 'System/Role',
         path: '/system/role',
-        component: () => import('@/views/system/role/index.vue'),
+        component: () => import('@/views/system/role/role.vue'),
         meta: {
           title: '角色管理',
           icon: 'Avatar',
@@ -94,7 +94,7 @@ export const staticRoutes: RouteRecordRaw[] = [
       {
         name: 'System/Permision',
         path: '/system/permission',
-        component: () => import('@/views/system/permission/index.vue'),
+        component: () => import('@/views/system/permission/permission.vue'),
         meta: {
           title: '菜单管理',
           icon: 'Menu',
