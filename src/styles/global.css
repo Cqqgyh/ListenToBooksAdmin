@@ -339,3 +339,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+/* flex居中 */
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
