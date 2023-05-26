@@ -40,7 +40,7 @@
 <script setup lang="ts" name="UserDrawer">
 import { ref } from 'vue'
 import { ElMessage, ElTree } from 'element-plus'
-import type { Permission } from '@/api/acl/types'
+import { PermissionListInterfaceRes } from '@/api/system/types'
 interface DrawerProps {
   title: string
   rowData?: any
@@ -59,8 +59,8 @@ const defaultProps = {
   children: 'children',
   label: 'name',
 }
-const allPermission = ref<Permission.ResPermisionList[]>([])
-const checkedKeys = ref<string[]>([])
+const allPermission = ref<PermissionListInterfaceRes[]>([])
+const checkedKeys = ref<(string | number)[]>([])
 const loading = ref<boolean>(false)
 const treeRef = ref<InstanceType<typeof ElTree>>()
 
@@ -75,12 +75,12 @@ const acceptParams = (params: DrawerProps): void => {
 
 // 获取选中的id
 const getCheckedIds = (
-  auths: Permission.ResPermisionList[],
-  initArr: string[] = [],
-): string[] => {
-  auths.forEach((item: Permission.ResPermisionList) => {
+  auths: PermissionListInterfaceRes[],
+  initArr: (string | number)[] = [],
+): (string | number)[] => {
+  auths.forEach((item: PermissionListInterfaceRes) => {
     if (item.select) {
-      initArr.push(item.id as string)
+      initArr.push(item.id)
     }
     if (item.children) {
       getCheckedIds(item.children, initArr)
@@ -95,7 +95,7 @@ const handleSubmit = async () => {
     const checkedKeys = treeRef.value?.getCheckedKeys() || []
     const params = {
       roleId: drawerProps.value.rowData.id,
-      permissionId: checkedKeys?.join(','),
+      menuIdList: checkedKeys,
     }
     loading.value = true
     await drawerProps.value.api!(params)
@@ -103,7 +103,7 @@ const handleSubmit = async () => {
     drawerProps.value.getTableList!()
     drawerVisible.value = false
     // 角色分配成功，刷新当前页面
-    window.location.reload()
+    // window.location.reload()
     loading.value = false
   } catch (error) {
     loading.value = true

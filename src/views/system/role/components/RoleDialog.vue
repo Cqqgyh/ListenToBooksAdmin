@@ -19,6 +19,13 @@
           clearable
         ></el-input>
       </el-form-item>
+      <el-form-item label="角色名称" prop="roleName">
+        <el-input
+          v-model="dialogProps.rowData!.roleCode"
+          placeholder="请填写角色编码"
+          clearable
+        ></el-input>
+      </el-form-item>
     </el-form>
     <template #footer>
       <el-button @click="dialogVisible = false">取消</el-button>
@@ -32,10 +39,10 @@
 <script setup lang="ts" name="RoleDialog">
 import { ref, reactive } from 'vue'
 import { ElMessage, FormInstance } from 'element-plus'
-import type { Role } from '@/api/acl/types'
+import { Role } from '@/api/system/types'
 interface DialogProps {
   title: string
-  rowData?: Role.ResRoleList
+  rowData?: Role
   api?: (params: any) => Promise<any>
   getTableList?: () => Promise<any>
 }
