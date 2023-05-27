@@ -80,7 +80,7 @@ const getCheckedIds = (
 ): (string | number)[] => {
   auths.forEach((item: PermissionListInterfaceRes) => {
     if (item.select) {
-      initArr.push(item.id)
+      initArr.push(item.id as number)
     }
     if (item.children) {
       getCheckedIds(item.children, initArr)
@@ -100,7 +100,7 @@ const handleSubmit = async () => {
     loading.value = true
     await drawerProps.value.api!(params)
     ElMessage.success({ message: `${drawerProps.value.title}成功！` })
-    drawerProps.value.getTableList!()
+    await drawerProps.value.getTableList
     drawerVisible.value = false
     // 角色分配成功，刷新当前页面
     // window.location.reload()

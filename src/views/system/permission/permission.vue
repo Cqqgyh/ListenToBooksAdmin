@@ -40,7 +40,7 @@
         </el-button>
       </template>
     </ProTable>
-    <PermissonDialog ref="DialogRef" />
+    <PermissionDialog ref="DialogRef" />
   </div>
 </template>
 
@@ -48,7 +48,7 @@
 import { ref } from 'vue'
 import DynamicComponentBox from '@/components/DynamicComponentBox/DynamicComponentBox.vue'
 import { useHandleData } from '@/hooks/useHandleData'
-import PermissonDialog from './components/PermissionDialog.vue'
+import PermissionDialog from './components/PermissionDialog.vue'
 import {
   addSysMenu,
   deleteSysMenu,

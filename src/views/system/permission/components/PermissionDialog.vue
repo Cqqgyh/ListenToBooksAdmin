@@ -208,9 +208,9 @@ const handleSubmit = (formEl: FormInstance | undefined) => {
     if (!valid) return
     try {
       loading.value = true
-      await dialogProps.value.api!(permissionData.value)
+      await dialogProps.value?.api!(permissionData.value)
       ElMessage.success({ message: `${title.value}成功！` })
-      dialogProps.value.getTableList!()
+      dialogProps.value?.getTableList!()
       dialogVisible.value = false
       loading.value = false
       // 重置表单
