@@ -16,6 +16,7 @@ import {
   PostInterfacesRes,
   Role,
   RoleListParamsInterfaceReq,
+  SysPostListParamsInterfaceReq,
   SysUserInterfaceRes,
   SysUserListParams,
   UserRolesListInterfaceRes,
@@ -236,4 +237,50 @@ export function updateSysDepartment(data: DeptInterfacesRes) {
  */
 export function deleteSysDepartment(id: string | number) {
   return http.delete(`/admin/system/sysDept/remove/${id}`)
+}
+/**
+ * @description 获取后台岗位分页列表(带搜索)
+ * @param params
+ */
+export function getSysPostListPaginate(params: SysPostListParamsInterfaceReq) {
+  return http.get<PageResponseInterface<PostInterfacesRes[]>>(
+    `/admin/system/sysPost/${params.pageNum}/${params.pageSize}`,
+    {
+      name: params.name,
+      postCode: params.postCode,
+      status: params.status,
+    },
+  )
+}
+/**
+ * @description 更新岗位状态
+ * @param id
+ * @param status
+ */
+export function updateSysPostStatus(id: number, status: number) {
+  return http.get(`/admin/system/sysPost/updateStatus/${id}/${status}`)
+}
+/**
+ * @description 新增部门
+ * @returns
+ * @param data
+ */
+export function addSysPost(data: PostInterfacesRes) {
+  return http.post(`/admin/system/sysPost/save`, data)
+}
+/**
+ * @description 修改更新部门
+ * @returns
+ * @param data
+ */
+export function updateSysPost(data: PostInterfacesRes) {
+  return http.put(`/admin/system/sysPost/update`, data)
+}
+/**
+ * @description 删除部门
+ * @param { string } id
+ * @returns
+ */
+export function deleteSysPostById(id: string | number) {
+  return http.delete(`/admin/system/sysPost/remove/${id}`)
 }

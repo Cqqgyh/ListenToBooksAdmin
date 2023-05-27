@@ -109,6 +109,15 @@ export const staticRoutes: RouteRecordRaw[] = [
           icon: 'Menu',
         },
       },
+      {
+        name: 'System/Post',
+        path: '/system/post',
+        component: () => import('@/views/system/post/post.vue'),
+        meta: {
+          title: '岗位管理',
+          icon: 'Menu',
+        },
+      },
     ],
   },
   // 专辑管理

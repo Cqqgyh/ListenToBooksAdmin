@@ -56,11 +56,14 @@ export interface Role {
 // 岗位接口
 export interface PostInterfacesRes {
   id: number
-  createTime: string
   postCode: string
   name: string
   description: string
   status: number
+  createTime?: string
+  isDeleted?: number
+  param?: object
+  updateTime?: string
 }
 // 部门接口
 export interface DeptInterfacesRes {
@@ -113,4 +116,10 @@ export interface PermissionListInterfaceRes {
 export interface AssignPermissionInterfaceReq {
   roleId: number | string
   menuIdList: number[]
+}
+// 岗位搜索
+export interface SysPostListParamsInterfaceReq extends ReqPage {
+  name?: string
+  postCode?: number
+  status?: number
 }
