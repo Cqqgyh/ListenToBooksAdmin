@@ -118,6 +118,36 @@ export const staticRoutes: RouteRecordRaw[] = [
           icon: 'Menu',
         },
       },
+      {
+        name: 'System/Log',
+        path: '/system/log/operationLog',
+        redirect: '/system/log/operationLog',
+        meta: {
+          title: '日志管理',
+          icon: 'Menu',
+        },
+        children: [
+          {
+            name: 'System/OperationLog',
+            path: '/system/log/operationLog',
+            component: () =>
+              import('@/views/system/log/operationLog/operationLog.vue'),
+            meta: {
+              title: '操作日志',
+              icon: 'Menu',
+            },
+          },
+          {
+            name: 'System/LoginLog',
+            path: '/system/log/loginLog',
+            component: () => import('@/views/system/log/loginLog/loginLog.vue'),
+            meta: {
+              title: '登陆日志',
+              icon: 'Menu',
+            },
+          },
+        ],
+      },
     ],
   },
   // 专辑管理

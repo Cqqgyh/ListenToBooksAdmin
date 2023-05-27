@@ -123,3 +123,46 @@ export interface SysPostListParamsInterfaceReq extends ReqPage {
   postCode?: number
   status?: number
 }
+// 操作日志请求接口
+export interface SysOperationLogListParamsInterfaceReq extends ReqPage {
+  title?: string
+  operName?: string
+  operatingTime?: [createTimeBegin: string, createTimeEnd: string]
+}
+// 操作日志响应接口
+export interface SysOperationLogInterfaceRes {
+  id: number
+  createTime: string
+  title: string
+  businessType: string
+  method: string
+  requestMethod: string
+  operatorType: string
+  operName: string
+  deptName: string
+  operUrl: string
+  operIp: string
+  operParam: string
+  jsonResult: string
+  status: number
+  errorMsg: string
+  operTime: Date | null
+}
+// 登录日志请求接口
+export interface SysLoginLogListParamsInterfaceReq extends ReqPage {
+  username?: string
+  operatingTime?: [createTimeBegin: string, createTimeEnd: string]
+}
+// 登录日志响应接口
+export interface SysLoginLogInterfaceRes {
+  id: number
+  createTime: string
+  updateTime: string | null
+  isDeleted: number
+  param: object
+  username: string
+  ipaddr: string
+  status: number
+  msg: string
+  accessTime: string | null
+}

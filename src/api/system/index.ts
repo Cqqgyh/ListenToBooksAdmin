@@ -16,6 +16,8 @@ import {
   PostInterfacesRes,
   Role,
   RoleListParamsInterfaceReq,
+  SysLoginLogListParamsInterfaceReq,
+  SysOperationLogListParamsInterfaceReq,
   SysPostListParamsInterfaceReq,
   SysUserInterfaceRes,
   SysUserListParams,
@@ -283,4 +285,35 @@ export function updateSysPost(data: PostInterfacesRes) {
  */
 export function deleteSysPostById(id: string | number) {
   return http.delete(`/admin/system/sysPost/remove/${id}`)
+}
+/**
+ * @description 获取后台操作日志列表(带搜索)
+ * @param params
+ */
+export function getSysOperationLogList(
+  params: SysOperationLogListParamsInterfaceReq,
+) {
+  return http.get<PageResponseInterface<SysUserInterfaceRes[]>>(
+    `/admin/system/sysOperLog/${params.pageNum}/${params.pageSize}`,
+    {
+      title: params.title,
+      operName: params.operName,
+      createTimeBegin: params.operatingTime && params.operatingTime[0],
+      createTimeEnd: params.operatingTime && params.operatingTime[1],
+    },
+  )
+}
+/**
+ * @description 获取后台登陆日志列表(带搜索)
+ * @param params
+ */
+export function getSysLoginLogList(params: SysLoginLogListParamsInterfaceReq) {
+  return http.get<PageResponseInterface<SysUserInterfaceRes[]>>(
+    `/admin/system/sysLoginLog/${params.pageNum}/${params.pageSize}`,
+    {
+      username: params.username,
+      createTimeBegin: params.operatingTime && params.operatingTime[0],
+      createTimeEnd: params.operatingTime && params.operatingTime[1],
+    },
+  )
 }
