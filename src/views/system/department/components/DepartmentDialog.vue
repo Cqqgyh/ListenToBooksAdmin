@@ -67,7 +67,6 @@ interface DialogProps {
 let departmentData = ref<DeptInterfacesRes>({} as DeptInterfacesRes)
 const rules = reactive({
   name: [{ required: true, message: '请填写名称' }],
-  code: [{ required: true, message: '请填写权限值' }],
 })
 
 const dialogVisible = ref(false)
