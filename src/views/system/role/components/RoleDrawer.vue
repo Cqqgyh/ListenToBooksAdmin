@@ -100,7 +100,7 @@ const handleSubmit = async () => {
     loading.value = true
     await drawerProps.value.api!(params)
     ElMessage.success({ message: `${drawerProps.value.title}成功！` })
-    await drawerProps.value.getTableList
+    drawerProps.value.getTableList!()
     drawerVisible.value = false
     // 角色分配成功，刷新当前页面
     // window.location.reload()
