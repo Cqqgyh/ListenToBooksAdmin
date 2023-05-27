@@ -113,7 +113,7 @@ const openDialog = (
   } as PermissionListInterfaceRes
   initRowData.parentId = rowData.id || 0
   const params = {
-    rowData: type == 0 ? initRowData : rowData,
+    rowData: type == 0 ? { ...initRowData } : { ...rowData },
     api: type == 0 ? addSysMenu : updateSysMenu,
     getTableList: proTable.value?.getTableList,
   }
