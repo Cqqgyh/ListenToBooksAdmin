@@ -2,7 +2,7 @@
   <div class="login-container">
     <el-alert
       v-show="false"
-      title="尚品汇商城管理平台"
+      title="硅谷听书商城管理平台"
       type="success"
       :closable="false"
       style="position: fixed"
@@ -21,7 +21,7 @@
         >
           <div class="form-header">
             <div class="title">hello !</div>
-            <div class="title-tips">欢迎来到尚品汇！</div>
+            <div class="title-tips">欢迎来到硅谷听书！</div>
           </div>
           <el-form-item prop="username">
             <el-input
