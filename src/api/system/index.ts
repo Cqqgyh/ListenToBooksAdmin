@@ -129,7 +129,7 @@ export function getSysRolePermission(roleId: string | number) {
 }
 /**
  * @description 给某个角色分配权限
- * @param { Permission.ReqAssignPermision } data
+ * @param data
  */
 export function assignSysRolePermission(data: AssignPermissionInterfaceReq) {
   return http.post(`/admin/system/sysMenu/doAssign`, data)
@@ -198,10 +198,42 @@ export function updateSysMenu(data: PermissionListInterfaceRes) {
   return http.put(`/admin/system/sysMenu/update`, data)
 }
 /**
- * @description 删除删除
+ * @description 删除菜单
  * @param { string } id
  * @returns
  */
 export function deleteSysMenu(id: string | number) {
   return http.delete(`/admin/system/sysMenu/remove/${id}`)
+}
+/**
+ * @description 更新部门状态
+ * @param id
+ * @param status
+ */
+export function updateSysDepartmentStatus(id: number, status: number) {
+  return http.get(`/admin/system/sysDept/updateStatus/${id}/${status}`)
+}
+/**
+ * @description 新增部门
+ * @returns
+ * @param data
+ */
+export function addSysDepartment(data: DeptInterfacesRes) {
+  return http.post(`/admin/system/sysDept/save`, data)
+}
+/**
+ * @description 修改更新部门
+ * @returns
+ * @param data
+ */
+export function updateSysDepartment(data: DeptInterfacesRes) {
+  return http.put(`/admin/system/sysDept/update`, data)
+}
+/**
+ * @description 删除部门
+ * @param { string } id
+ * @returns
+ */
+export function deleteSysDepartment(id: string | number) {
+  return http.delete(`/admin/system/sysDept/remove/${id}`)
 }

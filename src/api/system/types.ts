@@ -73,6 +73,8 @@ export interface DeptInterfacesRes {
   leader: string
   phone: string
   status: number
+  isDeleted?: number
+  param?: object
   children: DeptInterfacesRes[]
 }
 export interface UserRolesListInterfaceRes {

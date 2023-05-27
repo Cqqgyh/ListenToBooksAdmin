@@ -92,11 +92,20 @@ export const staticRoutes: RouteRecordRaw[] = [
         },
       },
       {
-        name: 'System/Permision',
+        name: 'System/Permission',
         path: '/system/permission',
         component: () => import('@/views/system/permission/permission.vue'),
         meta: {
           title: '菜单管理',
+          icon: 'Menu',
+        },
+      },
+      {
+        name: 'System/Department',
+        path: '/system/department',
+        component: () => import('@/views/system/department/department.vue'),
+        meta: {
+          title: '部门管理',
           icon: 'Menu',
         },
       },
