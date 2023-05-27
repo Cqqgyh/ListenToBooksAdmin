@@ -58,7 +58,7 @@ const columns: ColumnProps[] = [
   { prop: 'businessType', label: '操作类型', width: 120 },
   { prop: 'requestMethod', label: '请求方式', width: 120 },
   { prop: 'operIp', label: '操作IP', width: 120 },
-  { prop: 'method', label: '请求方法', width: 120 },
+  { prop: 'method', label: '请求方法' },
   {
     prop: 'status',
     label: '操作状态',

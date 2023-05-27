@@ -113,7 +113,7 @@ const columns: ColumnProps[] = [
       return <span>{getLabelByValue(TrackSourceMap, row.source)}</span>
     },
   },
-  { prop: 'createTime', label: '创建时间', width: 160 },
+  { prop: 'createTime', label: '创建时间' },
   { prop: 'operation', label: '操作', fixed: 'right', width: 230 },
 ]
 

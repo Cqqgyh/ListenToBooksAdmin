@@ -108,7 +108,7 @@ const columns: ColumnProps[] = [
   { prop: 'derateAmount', label: '减免总金额', width: 100 },
   { prop: 'orderAmount', label: '订单总价', width: 90 },
   { prop: 'orderStatusName', label: '状态' },
-  { prop: 'createTime', label: '创建时间', width: 160 },
+  { prop: 'createTime', label: '创建时间' },
   { prop: 'operation', label: '操作', fixed: 'right', width: 230 },
 ]
 

@@ -93,7 +93,7 @@ const columns = [
       )
     },
   },
-  { prop: 'createTime', label: '创建时间', width: 200 },
+  { prop: 'createTime', label: '创建时间' },
   { prop: 'operation', label: '操作', fixed: 'right', width: 280 },
 ]
 

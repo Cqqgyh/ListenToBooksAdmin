@@ -244,7 +244,7 @@ const columns: ColumnProps[] = [
       )
     },
   },
-  { prop: 'createTime', label: '创建时间', sortable: true, width: 200 },
+  { prop: 'createTime', label: '创建时间', sortable: true },
   { prop: 'updateTime', label: '更新时间', sortable: true, width: 200 },
   { prop: 'operation', label: '操作', fixed: 'right', width: 280 },
 ]

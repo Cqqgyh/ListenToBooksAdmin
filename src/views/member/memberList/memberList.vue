@@ -99,7 +99,7 @@ const columns: ColumnProps[] = [
     },
   },
   { prop: 'vipExpireTime', label: 'VIP到期时间', width: 160 },
-  { prop: 'createTime', label: '创建时间', width: 160 },
+  { prop: 'createTime', label: '创建时间' },
 ]
 
 // *查询参数
