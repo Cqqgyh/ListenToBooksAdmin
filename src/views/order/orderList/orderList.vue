@@ -10,6 +10,7 @@
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button
+          v-auth="[ButtonPermission.Order.OrderList.ViewOrderDetail]"
           type="primary"
           link
           icon="View"
@@ -29,6 +30,7 @@ import ProTable from '@/components/ProTable/src/ProTable.vue'
 import { useRouter } from 'vue-router'
 import { getOrderList } from '@/api/order'
 import {
+  ButtonPermission,
   getLabelByValue,
   OrderStatusTypeMap,
   PayItemTypeMap,
