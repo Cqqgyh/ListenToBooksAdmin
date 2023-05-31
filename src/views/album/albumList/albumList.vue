@@ -10,6 +10,7 @@
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button
+          v-auth="[ButtonPermission.Album.AlbumList.ViewDetail]"
           type="primary"
           link
           icon="View"
@@ -18,6 +19,7 @@
           查看
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.Album.AlbumList.PassAndNotPass]"
           v-if="scope.row.status === AlbumApproveStatus.NOT_PASS"
           type="primary"
           link
@@ -27,6 +29,7 @@
           通过
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.Album.AlbumList.PassAndNotPass]"
           v-if="scope.row.status === AlbumApproveStatus.PASS"
           type="primary"
           link
@@ -50,6 +53,7 @@ import { albumApproval, getAlbumList } from '@/api/album'
 import {
   AlbumApproveStatus,
   AlbumApproveStatusMap,
+  ButtonPermission,
   FinishTypeMap,
   getLabelByValue,
   IsOpenMap,

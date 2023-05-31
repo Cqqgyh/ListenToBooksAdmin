@@ -196,6 +196,7 @@ export const ButtonPermission = {
     //  声音列表
     TrackList: {
       ViewTrackDetail: 'bnt.track.viewTrackDetail',
+      PassAndNotPass: 'bnt.track.passAndNotPass',
     },
   },
   //  订单管理
