@@ -10,6 +10,7 @@
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button
+          v-auth="[ButtonPermission.SysLog.OperLogList]"
           type="primary"
           link
           icon="View"
@@ -30,6 +31,7 @@ import ProTable from '@/components/ProTable/src/ProTable.vue'
 import OperationDialog from './components/OperationDialog.vue'
 import { SysOperationLogInterfaceRes } from '@/api/system/types'
 import { getSysOperationLogList } from '@/api/system'
+import { ButtonPermission } from '@/enums/constEnums'
 
 // *获取 ProTable 元素，调用其获取刷新数据方法
 const proTable = ref<InstanceType<typeof ProTable>>()

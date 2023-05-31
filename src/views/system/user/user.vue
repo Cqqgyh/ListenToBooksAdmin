@@ -8,10 +8,16 @@
       :initParam="initParam"
     >
       <template #tableHeader="scope">
-        <el-button type="primary" icon="Plus" @click="openDrawer('新增')">
+        <el-button
+          v-auth="[ButtonPermission.SysUser.Add]"
+          type="primary"
+          icon="Plus"
+          @click="openDrawer('新增')"
+        >
           添加
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysUser.Remove]"
           type="danger"
           icon="Delete"
           plain
@@ -24,6 +30,7 @@
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button
+          v-auth="[ButtonPermission.SysUser.AssignRole]"
           type="primary"
           link
           icon="UserFilled"
@@ -32,6 +39,7 @@
           分配角色
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysUser.Update]"
           type="primary"
           link
           icon="Edit"
@@ -40,6 +48,7 @@
           编辑
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysUser.Remove]"
           type="primary"
           link
           icon="Delete"
@@ -78,7 +87,8 @@ import {
   Role,
   SysUserInterfaceRes,
 } from '@/api/system/types'
-
+import { ButtonPermission } from '@/enums/constEnums'
+import { useAuthButtons } from '@/hooks/useAuthButtons'
 // *获取 ProTable 元素，调用其获取刷新数据方法
 const proTable = ref()
 
@@ -239,6 +249,9 @@ const columns: ColumnProps[] = [
           active-value={1}
           inactive-value={0}
           v-model={row.status}
+          disabled={
+            !useAuthButtons().BUTTONS.value[ButtonPermission.SysMenu.Update]
+          }
           onChange={() => updateSysUserStatus(row.id, row.status)}
         ></el-switch>
       )

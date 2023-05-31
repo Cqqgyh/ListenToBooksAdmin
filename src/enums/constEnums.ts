@@ -143,36 +143,6 @@ export const VipStatusMap = [
   { label: '会员', value: 1 },
 ]
 // 按钮权限
-//   [
-//   "bnt.sysUser.list",
-//     "bnt.sysUser.add",
-//     "bnt.sysUser.update",
-//     "bnt.sysUser.remove",
-//     "bnt.sysRole.list",
-//     "bnt.sysRole.add",
-//     "bnt.sysRole.update",
-//     "bnt.sysRole.remove",
-//     "bnt.sysMenu.list",
-//     "bnt.sysMenu.add",
-//     "bnt.sysMenu.update",
-//     "bnt.sysMenu.remove",
-//     "bnt.sysDept.list",
-//     "bnt.sysPost.list",
-//     "bnt.sysDept.add",
-//     "bnt.sysDept.update",
-//     "bnt.sysDept.remove",
-//     "bnt.sysPost.add",
-//     "bnt.sysPost.update",
-//     "bnt.sysPost.remove",
-//     "bnt.sysOperLog.list",
-//     "bnt.sysLoginLog.list",
-//     "bnt.sysUser.assignRole",
-//     "bnt.sysRole.assignAuth",
-//     "bnt.album.viewDetail",
-//     "bnt.album.passAndNotPass",
-//     "bnt.order.viewOrderDetail",
-//     "bnt.track.viewTrackDetail"
-//   ]
 export const ButtonPermission = {
   // 用户管理
   SysUser: {
@@ -210,6 +180,11 @@ export const ButtonPermission = {
     Add: 'bnt.sysPost.add',
     Update: 'bnt.sysPost.update',
     Remove: 'bnt.sysPost.remove',
+  },
+  // 操作日志
+  SysLog: {
+    OperLogList: 'bnt.sysOperLog.list',
+    LoginLogList: 'bnt.sysLoginLog.list',
   },
   //  专辑管理
   Album: {

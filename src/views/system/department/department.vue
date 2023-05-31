@@ -9,6 +9,7 @@
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button
+          v-auth="[ButtonPermission.SysDept.Add]"
           type="primary"
           link
           icon="UserFilled"
@@ -18,6 +19,7 @@
           添加
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysDept.Update]"
           type="primary"
           link
           icon="Edit"
@@ -26,6 +28,7 @@
           编辑
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysDept.Remove]"
           type="primary"
           link
           icon="Delete"
@@ -51,6 +54,8 @@ import {
   updateSysDepartmentStatus,
 } from '@/api/system'
 import { DeptInterfacesRes } from '@/api/system/types'
+import { ButtonPermission } from '@/enums/constEnums'
+import { useAuthButtons } from '@/hooks/useAuthButtons'
 const columns = [
   { prop: 'name', label: '名称', align: 'left', width: 200 },
   { prop: 'leader', label: '部门负责人', width: 160 },
@@ -65,6 +70,9 @@ const columns = [
           active-value={1}
           inactive-value={0}
           v-model={row.status}
+          disabled={
+            !useAuthButtons().BUTTONS.value[ButtonPermission.SysDept.Update]
+          }
           onChange={() => updateSysDepartmentStatus(row.id, row.status)}
         ></el-switch>
       )

@@ -7,13 +7,19 @@
       :requestApi="getSysPermissionList"
     >
       <template #tableHeader>
-        <el-button type="primary" icon="Plus" @click="openDialog(0)">
+        <el-button
+          v-auth="[ButtonPermission.SysMenu.Add]"
+          type="primary"
+          icon="Plus"
+          @click="openDialog(0)"
+        >
           添加
         </el-button>
       </template>
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button
+          v-auth="[ButtonPermission.SysMenu.Add]"
           type="primary"
           link
           icon="UserFilled"
@@ -23,6 +29,7 @@
           添加
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysMenu.Update]"
           type="primary"
           link
           icon="Edit"
@@ -31,6 +38,7 @@
           编辑
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysMenu.Remove]"
           type="primary"
           link
           icon="Delete"
@@ -58,6 +66,8 @@ import {
 } from '@/api/system'
 import { PermissionListInterfaceRes } from '@/api/system/types'
 import { ElMessage } from 'element-plus'
+import { ButtonPermission } from '@/enums/constEnums'
+import { useAuthButtons } from '@/hooks/useAuthButtons'
 
 const columns = [
   { prop: 'name', label: '名称', align: 'left', width: 150 },
@@ -88,6 +98,9 @@ const columns = [
           active-value={1}
           inactive-value={0}
           v-model={row.status}
+          disabled={
+            !useAuthButtons().BUTTONS.value[ButtonPermission.SysMenu.Update]
+          }
           onChange={() => updateSysPermissionStatus(row)}
         ></el-switch>
       )

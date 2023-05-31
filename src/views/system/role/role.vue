@@ -8,10 +8,16 @@
     >
       <!-- Expand -->
       <template #tableHeader="scope">
-        <el-button type="primary" icon="Plus" @click="openDialog('新增')">
+        <el-button
+          v-auth="[ButtonPermission.SysRole.Add]"
+          type="primary"
+          icon="Plus"
+          @click="openDialog('新增')"
+        >
           添加
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysRole.Remove]"
           type="danger"
           icon="Delete"
           plain
@@ -24,6 +30,7 @@
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button
+          v-auth="[ButtonPermission.SysRole.AssignAuth]"
           type="primary"
           link
           icon="UserFilled"
@@ -32,6 +39,7 @@
           分配权限
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysRole.Update]"
           type="primary"
           link
           icon="Edit"
@@ -40,6 +48,7 @@
           编辑
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysRole.Remove]"
           type="primary"
           link
           icon="Delete"
@@ -70,6 +79,7 @@ import {
   getSysRoleUserList,
   updateSysRole,
 } from '@/api/system'
+import { ButtonPermission } from '@/enums/constEnums'
 
 const columns: ColumnProps[] = [
   { type: 'selection', fixed: 'left', width: 80 },

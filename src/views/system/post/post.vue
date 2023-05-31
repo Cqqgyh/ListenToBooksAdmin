@@ -8,13 +8,19 @@
       :initParam="initParam"
     >
       <template #tableHeader>
-        <el-button type="primary" icon="Plus" @click="openDialog(0)">
+        <el-button
+          v-auth="[ButtonPermission.SysPost.Add]"
+          type="primary"
+          icon="Plus"
+          @click="openDialog(0)"
+        >
           添加
         </el-button>
       </template>
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button
+          v-auth="[ButtonPermission.SysPost.Update]"
           type="primary"
           link
           icon="Edit"
@@ -23,6 +29,7 @@
           编辑
         </el-button>
         <el-button
+          v-auth="[ButtonPermission.SysPost.Remove]"
           type="primary"
           link
           icon="Delete"
@@ -49,6 +56,8 @@ import {
   updateSysPostStatus,
 } from '@/api/system'
 import { PostInterfacesRes } from '@/api/system/types'
+import { ButtonPermission } from '@/enums/constEnums'
+import { useAuthButtons } from '@/hooks/useAuthButtons'
 
 // *获取 ProTable 元素，调用其获取刷新数据方法
 const proTable = ref()
@@ -125,6 +134,9 @@ const columns: ColumnProps[] = [
           active-value={1}
           inactive-value={0}
           v-model={row.status}
+          disabled={
+            !useAuthButtons().BUTTONS.value[ButtonPermission.SysPost.Update]
+          }
           onChange={() => updateSysPostStatus(row.id, row.status)}
         ></el-switch>
       )
