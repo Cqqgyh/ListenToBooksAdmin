@@ -56,7 +56,10 @@
       <el-form-item :prop="permissionData.type !== 2 ? 'path' : ''">
         <template #label>
           <span>
-            <el-tooltip content="访问的路由地址，如：`sysUser`" placement="top">
+            <el-tooltip
+              content="访问的路由地址，如：`/system/user`"
+              placement="top"
+            >
               <el-icon size="14">
                 <QuestionFilled />
               </el-icon>
