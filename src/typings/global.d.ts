@@ -46,13 +46,13 @@ declare namespace Menu {
     children?: MenuOptions[]
   }
   interface MetaProps {
-    icon: string
-    name: string
+    icon?: string
+    name?: string
     activeMenu?: string
     isLink?: string
-    isHide: boolean
-    isFull: boolean
-    isAffix: boolean
-    isKeepAlive: boolean
+    isHide?: boolean
+    isFull?: boolean
+    isAffix?: boolean
+    isKeepAlive?: boolean
   }
 }

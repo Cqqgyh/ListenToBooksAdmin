@@ -10,14 +10,13 @@ export interface UserRes {
   avatar: string
   buttons: string[]
   roles: string[]
-  routes: string[]
+  routers: Menu.MenuOptions[]
 }
-
 /** 用户权限数据类型 */
 export interface AuthInfo {
   buttons: string[]
   roles: string[]
-  routes: string[]
+  routers: Menu.MenuOptions[]
 }
 
 /* 用户信息接口返回值类型 */

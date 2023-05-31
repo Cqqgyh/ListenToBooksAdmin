@@ -8,7 +8,7 @@
 
 import { defineStore } from 'pinia'
 import { AuthState } from './model/authModel'
-import { AuthInfo } from '../../api/user/types'
+import { AuthInfo } from '@/api/user/types'
 export const useAuthStore = defineStore({
   // id: 必须的，在所有 Store 中唯一
   id: 'app-auth',
@@ -38,7 +38,7 @@ export const useAuthStore = defineStore({
     setAuth(authInfo: AuthInfo) {
       this.roles = authInfo.roles
       this.authButtonList = authInfo.buttons
-      this.authRouterList = authInfo.routes
+      this.authRouterList = authInfo.routers
     },
     setAuthMenuList(list: Menu.MenuOptions[]) {
       this.authMenuList = list

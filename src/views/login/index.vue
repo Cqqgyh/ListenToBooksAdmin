@@ -67,7 +67,7 @@ import { User, Lock } from '@element-plus/icons-vue'
 import { ElNotification } from 'element-plus'
 import { HOME_URL } from '@/config/config'
 import { timeFix } from '@/utils/index'
-import { login } from '@/api'
+import { login } from '@/api/user'
 const router = useRouter()
 const route = useRoute()
 const ruleFormRef = ref<FormInstance>()

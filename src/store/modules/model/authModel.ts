@@ -4,5 +4,5 @@ export interface AuthState {
   roles: string[]
   authButtonList: string[]
   authMenuList: Menu.MenuOptions[]
-  authRouterList: string[]
+  authRouterList: Menu.MenuOptions[]
 }
