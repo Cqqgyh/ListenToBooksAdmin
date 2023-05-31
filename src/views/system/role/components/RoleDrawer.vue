@@ -17,6 +17,7 @@
       <el-form-item label="权限列表" prop="permissionId">
         <div class="tree-border">
           <el-tree
+            :check-strictly="checkStrictly"
             ref="treeRef"
             node-key="id"
             show-checkbox
@@ -37,8 +38,8 @@
   </el-drawer>
 </template>
 
-<script setup lang="ts" name="UserDrawer">
-import { ref } from 'vue'
+<script setup lang="ts">
+import { nextTick, ref } from 'vue'
 import { ElMessage, ElTree } from 'element-plus'
 import { PermissionListInterfaceRes } from '@/api/system/types'
 interface DrawerProps {
@@ -63,7 +64,8 @@ const allPermission = ref<PermissionListInterfaceRes[]>([])
 const checkedKeys = ref<(string | number)[]>([])
 const loading = ref<boolean>(false)
 const treeRef = ref<InstanceType<typeof ElTree>>()
-
+// 用于修复tree严格父子不关联组件的bug
+const checkStrictly = ref(true)
 // 接收父组件传过来的参数
 const acceptParams = (params: DrawerProps): void => {
   const { list } = params
@@ -86,6 +88,10 @@ const getCheckedIds = (
       getCheckedIds(item.children, initArr)
     }
   })
+  // 修复tree严格父子不关联组件的bug
+  nextTick(() => {
+    checkStrictly.value = false
+  })
   return initArr
 }
 
@@ -93,9 +99,11 @@ const handleSubmit = async () => {
   try {
     // 获取selectdKeys
     const checkedKeys = treeRef.value?.getCheckedKeys() || []
+    // 获取半选中
+    const halfCheckedKeys = treeRef.value?.getHalfCheckedKeys() || []
     const params = {
       roleId: drawerProps.value.rowData.id,
-      menuIdList: checkedKeys,
+      menuIdList: [...checkedKeys, ...halfCheckedKeys],
     }
     loading.value = true
     await drawerProps.value.api!(params)
