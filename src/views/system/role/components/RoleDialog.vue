@@ -19,7 +19,7 @@
           clearable
         ></el-input>
       </el-form-item>
-      <el-form-item label="角色名称" prop="roleName">
+      <el-form-item label="角色编码" prop="roleCode">
         <el-input
           v-model="dialogProps.rowData!.roleCode"
           placeholder="请填写角色编码"

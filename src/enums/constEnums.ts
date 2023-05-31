@@ -142,3 +142,92 @@ export const VipStatusMap = [
   { label: '非会员', value: 0 },
   { label: '会员', value: 1 },
 ]
+// 按钮权限
+//   [
+//   "bnt.sysUser.list",
+//     "bnt.sysUser.add",
+//     "bnt.sysUser.update",
+//     "bnt.sysUser.remove",
+//     "bnt.sysRole.list",
+//     "bnt.sysRole.add",
+//     "bnt.sysRole.update",
+//     "bnt.sysRole.remove",
+//     "bnt.sysMenu.list",
+//     "bnt.sysMenu.add",
+//     "bnt.sysMenu.update",
+//     "bnt.sysMenu.remove",
+//     "bnt.sysDept.list",
+//     "bnt.sysPost.list",
+//     "bnt.sysDept.add",
+//     "bnt.sysDept.update",
+//     "bnt.sysDept.remove",
+//     "bnt.sysPost.add",
+//     "bnt.sysPost.update",
+//     "bnt.sysPost.remove",
+//     "bnt.sysOperLog.list",
+//     "bnt.sysLoginLog.list",
+//     "bnt.sysUser.assignRole",
+//     "bnt.sysRole.assignAuth",
+//     "bnt.album.viewDetail",
+//     "bnt.album.passAndNotPass",
+//     "bnt.order.viewOrderDetail",
+//     "bnt.track.viewTrackDetail"
+//   ]
+export const ButtonPermission = {
+  // 用户管理
+  SysUser: {
+    List: 'bnt.sysUser.list',
+    Add: 'bnt.sysUser.add',
+    Update: 'bnt.sysUser.update',
+    Remove: 'bnt.sysUser.remove',
+    AssignRole: 'bnt.sysUser.assignRole',
+  },
+  // 角色管理
+  SysRole: {
+    List: 'bnt.sysRole.list',
+    Add: 'bnt.sysRole.add',
+    Update: 'bnt.sysRole.update',
+    Remove: 'bnt.sysRole.remove',
+    AssignAuth: 'bnt.sysRole.assignAuth',
+  },
+  // 菜单管理
+  SysMenu: {
+    List: 'bnt.sysMenu.list',
+    Add: 'bnt.sysMenu.add',
+    Update: 'bnt.sysMenu.update',
+    Remove: 'bnt.sysMenu.remove',
+  },
+  // 部门管理
+  SysDept: {
+    List: 'bnt.sysDept.list',
+    Add: 'bnt.sysDept.add',
+    Update: 'bnt.sysDept.update',
+    Remove: 'bnt.sysDept.remove',
+  },
+  // 岗位管理
+  SysPost: {
+    List: 'bnt.sysPost.list',
+    Add: 'bnt.sysPost.add',
+    Update: 'bnt.sysPost.update',
+    Remove: 'bnt.sysPost.remove',
+  },
+  //  专辑管理
+  Album: {
+    //  专辑列表
+    AlbumList: {
+      ViewDetail: 'bnt.album.viewDetail',
+      PassAndNotPass: 'bnt.album.passAndNotPass',
+    },
+    //  声音列表
+    TrackList: {
+      ViewTrackDetail: 'bnt.track.viewTrackDetail',
+    },
+  },
+  //  订单管理
+  Order: {
+    //  专辑列表
+    OrderList: {
+      ViewOrderDetail: 'bnt.order.viewOrderDetail',
+    },
+  },
+}
