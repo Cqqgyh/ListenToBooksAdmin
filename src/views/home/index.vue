@@ -7,7 +7,7 @@
           <p class="page-header-tip-title">
             {{ timeFix() }}{{ userInfo?.name }}，{{ welcome() }}
           </p>
-          <p class="page-header-tip-desc">尚品汇后台管理系统</p>
+          <p class="page-header-tip-desc">谷粒随享后台管理系统</p>
         </div>
       </div>
     </el-card>
