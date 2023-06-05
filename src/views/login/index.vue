@@ -2,7 +2,7 @@
   <div class="login-container">
     <el-alert
       v-show="false"
-      title="硅谷听书商城管理平台"
+      title="谷粒随享商城管理平台"
       type="success"
       :closable="false"
       style="position: fixed"
@@ -21,7 +21,7 @@
         >
           <div class="form-header">
             <div class="title">hello !</div>
-            <div class="title-tips">欢迎来到硅谷听书！</div>
+            <div class="title-tips">欢迎来到谷粒随享！</div>
           </div>
           <el-form-item prop="username">
             <el-input
