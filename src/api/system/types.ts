@@ -105,7 +105,7 @@ export interface PermissionListInterfaceRes {
   path?: string | null
   component?: string | null
   perms?: string
-  icon?: string | null
+  icon?: string
   sortValue?: number
   status?: number
   activeMenu?: string
