@@ -6,7 +6,8 @@
  * @Description: 用户store
  */
 import { defineStore } from 'pinia'
-import { getUserInfo, logout } from '@/api/user'
+import { getUserInfo } from '@/api/user'
+// import { logout } from '@/api/user'
 import type { UserState } from './model/userModel'
 import type { UserInfo } from '@/api/user/types'
 import { useAuthStore } from './auth'
@@ -36,7 +37,7 @@ export const useUserStore = defineStore({
       authStore.setAuth({ buttons, roles, routers })
     },
     async Logout() {
-      await logout()
+      // await logout()
       RESEETSTORE()
     },
   },

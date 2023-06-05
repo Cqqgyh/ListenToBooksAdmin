@@ -12,16 +12,25 @@
       </div>
     </el-card>
 
-    <div class="welcome">
-      <SvgIcon name="welcome" size="400px" />
-    </div>
+    <!--    <div class="welcome">-->
+    <!--      <SvgIcon name="welcome" size="400px" />-->
+    <!--    </div>-->
+    <el-card class="welcome m-t-20">
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <div style="text-indent: 2em; font-size: 24px">
+          谷粒随享是一个音频分享平台，用户可以在平台轻松创建声音，随时分享好声音，
+          用声音分享人类智慧，用声音服务美好生活。项目包括：在线声音制作、专辑管理、智能搜索、排行榜、声音播放、在线购买、多种支付渠道、订单管理、个人账户、音频直播、即时通讯等功能，全方位的为广大用户服务
+        </div>
+        <img src="@/assets/images/jiagou.png" alt="" />
+      </div>
+    </el-card>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useUserStore } from '@/store/modules/user'
-import { timeFix, welcome } from '@/utils/index'
-import SvgIcon from '@/components/SvgIcon/src/SvgIcon.vue'
+import { timeFix, welcome } from '@/utils'
+// import SvgIcon from '@/components/SvgIcon/src/SvgIcon.vue'
 const userStore = useUserStore()
 const userInfo = userStore.userInfo
 </script>
